@@ -1,0 +1,128 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #282828;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    color: #e50914;
+}
+
+h1 span {
+    color: rgb(248, 248, 248);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    /* Allow items to wrap to the next line */
+}
+
+.left-column {
+    width: 100%;
+    /* Full width on smaller screens */
+    max-width: 300px;
+    /* Limit the width */
+    margin: 0 auto;
+    /* Center the image */
+    position: relative;
+}
+
+.right-column {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    /* Take remaining space */
+    padding-left: 20px;
+    /* Add some space between image and content */
+}
+
+.left-column img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 2px solid #358ED7;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.movie-description {
+    border-bottom: 1px solid #E1E8EE;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+.movie-description span {
+    font-size: 12px;
+    color: rgb(219, 16, 16);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.movie-description h2 {
+    font-weight: 300;
+    font-size: 32px;
+    color: #358ED7;
+    letter-spacing: -2px;
+}
+
+.movie-description p {
+    font-size: 16px;
+    font-weight: 300;
+    color: white;
+    line-height: 24px;
+}
+
+.movie-details span {
+    display: block;
+    margin-bottom: 10px;
+
+}
+
+.movie-details p1 {
+    font-weight: bold;
+    margin-right: 7px;
+    color: #358ED7;
+
+}
+
+a {
+    background-color: rgb(240, 27, 27);
+    padding: 7px 15px;
+    color: #f7f7f7;
+    text-decoration: none;
+    border-radius: 5%;
+    margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+    .left-column {
+        width: 45%;
+        max-width: none;
+        /* Reset max-width */
+        margin-right: 20px;
+        /* Add some space between image and content */
+    }
+
+    .right-column {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        padding-left: 0;
+        /* Reset padding */
+    }
+}

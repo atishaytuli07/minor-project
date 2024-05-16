@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Signup</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+  <header class="header">
+    <img src="https://assets.nflxext.com/ffe/siteui/acquisition/home/nflxlogo.png" alt="Netflix Logo" class="logo">
+  </header>
+
+  <div class="container">
+    <div class="form-container">
+      <form id="authForm" class="auth-form">
+        <h1 class="form-title">Sign In</h1>
+        <div class="input-group">
+          <input type="email" id="email" placeholder="Email Address" class="input-field">
+          <input type="password" id="password" placeholder="Password" class="input-field">
+        </div>
+        <button type="button" class="submit-btn" id="submit">Sign In</button>
+        <p class="form-text">Don't have an account? <span id="toggleForm" class="toggle-form">Sign Up</span></p>
+      </form>
+    </div>
+  </div>
+
+  <div class="notifications-container">
+    <div class="info">
+      <div class="flex">
+        <div class="flex-shrink-0">
+          <svg class="info-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+            aria-hidden="true">
+            <path fill-rule="evenodd"
+              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </div>
+        <div class="info-prompt-wrap">
+          <p class="">
+            Netflix Conversa-AI Password Tip :
+            <a class="info-prompt-link" href="#">Try to set a difficult using '@' '#' "0-9" "a-z" →</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2024 Netflix Conversa-AI. &nbsp;&nbsp;&nbsp;&nbsp;All rights reserved !</p>
+  </footer>
+  <script src="firebase-auth.js"></script>
+  <script type="module" src="../static/login.js"></script>
+  <script type="module" src="../static/signup.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-analytics.js";
+    const firebaseConfig = {
+      apiKey: "AIzaSyCQorx3AlSCmJTNFqg0-XzJh5o3W0dmFtc",
+      authDomain: "netflixconversaai.firebaseapp.com",
+      projectId: "netflixconversaai",
+      storageBucket: "netflixconversaai.appspot.com",
+      messagingSenderId: "1003525164231",
+      appId: "1:1003525164231:web:7c8c14f420912cadc8c2e2",
+      measurementId: "G-YLVSW707J8"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+  <script type="module" src="../static/signup.js"></script>
+</body>
+
+</html>

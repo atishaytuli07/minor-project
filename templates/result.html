@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Recommendations</title>
+    <link rel="stylesheet" href="../static/result.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="page">
+        <h1>HERE ARE YOUR <span>&nbsp; NETFLIX &nbsp;</span>RECOMMENDATIONS....</h1>
+        <div class="image-grid">
+            {% for image in images %}
+            <a href="{{ url_for('movie_details', name=titles[loop.index0]) }}" class="image-link">
+                <img src="{{ image }}" alt="Movie Image" class="movie-image">
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>
