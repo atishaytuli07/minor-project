@@ -1,0 +1,5 @@
+Flask==3.0.3
+pandas==2.2.3
+protobuf==5.28.2
+scikit_learn==1.5.2
+google-generativeai
