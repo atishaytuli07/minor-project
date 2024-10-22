@@ -14,7 +14,8 @@ document.getElementById("submit-btn").addEventListener("click", async function (
       const ul = document.createElement("ul");
       movies.forEach(movie => {
         const li = document.createElement("li");
-        li.textContent = `${movie.name} (Rating: ${movie.rating})`;
+        // Use the correct keys from the backend response
+        li.textContent = `${movie.Movie} (Rating: ${movie.Rating})`;
         ul.appendChild(li);
       });
       resultsDiv.appendChild(ul);
