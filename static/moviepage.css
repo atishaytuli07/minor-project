@@ -1,128 +1,165 @@
-html,
-body {
+html, body {
     height: 100%;
     width: 100%;
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: #282828;
     color: white;
 }
 
+
+body{
+    background-image: url('./moviee.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.87);
+    z-index: 1;
+  }
+
+  main{
+    position: relative;
+    z-index: 2;
+   
+  }
+  
+
 h1 {
     text-align: center;
-    margin-top: 50px;
+    margin: 50px 0;
     color: #e50914;
+    font-size: 36px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 h1 span {
-    color: rgb(248, 248, 248);
+    color: #f8f8f8;
+    font-size: 38px;
 }
 
 .container {
-    max-width: 1200px;
+    width: 80%;
     margin: 0 auto;
     padding: 15px;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    /* Allow items to wrap to the next line */
+    justify-content: space-between;
+    gap: 6%;
 }
 
 .left-column {
-    width: 100%;
-    /* Full width on smaller screens */
-    max-width: 300px;
-    /* Limit the width */
-    margin: 0 auto;
-    /* Center the image */
-    position: relative;
+    width: 35%;
+    flex: 1;
+    max-width: 500px;
+    margin: 40px auto;
+    text-align: center;
 }
 
 .right-column {
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    /* Take remaining space */
+    width: 55%;
+    flex: 2;
     padding-left: 20px;
-    /* Add some space between image and content */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #da3f3f;
 }
 
 .left-column img {
     width: 100%;
     height: auto;
     display: block;
-    border: 2px solid #358ED7;
-    -webkit-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
+    border: 1px solid #c1d4e4;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.left-column img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .movie-description {
-    border-bottom: 1px solid #E1E8EE;
-    margin-bottom: 20px;
+    border-bottom: 2px solid #E1E8EE;
+    margin-bottom: 25px;
     padding-bottom: 20px;
+    font-size: 12px;
+
 }
 
 .movie-description span {
-    font-size: 12px;
-    color: rgb(219, 16, 16);
-    letter-spacing: 1px;
+    font-size: 15px;
+    color: #e50914;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    text-decoration: none;
+    font-weight: bold;
 }
 
 .movie-description h2 {
-    font-weight: 300;
-    font-size: 32px;
-    color: #358ED7;
-    letter-spacing: -2px;
+    font-size: 40px;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: -1px;
+    margin: 15px 0;
 }
 
 .movie-description p {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 300;
-    color: white;
+    color: rgb(48, 218, 218);
     line-height: 24px;
+    margin-top: 15px;
 }
 
-.movie-details span {
-    display: block;
-    margin-bottom: 10px;
-
+.movie-details {
+    margin-bottom: 25px;
 }
 
-.movie-details p1 {
+.movie-details div {
+    margin-bottom: 12px;
+    font-size: 17px;
+}
+
+strong {
+    color: #ffffff;
     font-weight: bold;
-    margin-right: 7px;
-    color: #358ED7;
-
+    font-size: 18px;
 }
 
 a {
+    display: inline-block;
     background-color: rgb(240, 27, 27);
-    padding: 7px 15px;
+    padding: 12px 20px;
     color: #f7f7f7;
     text-decoration: none;
-    border-radius: 5%;
-    margin-top: 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+a:hover {
+    background-color: #d92020;
+    transform: translateY(-2px);
 }
 
 @media (min-width: 768px) {
     .left-column {
-        width: 45%;
-        max-width: none;
-        /* Reset max-width */
-        margin-right: 20px;
-        /* Add some space between image and content */
+        max-width: 350px;
     }
 
     .right-column {
-        -webkit-box-flex: 1;
-        -ms-flex: 1;
-        flex: 1;
-        padding-left: 0;
-        /* Reset padding */
+        padding-left: 25px;
     }
 }
+

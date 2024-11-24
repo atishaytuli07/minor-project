@@ -9,62 +9,55 @@
 </head>
 
 <body>
-    <h1>HERE ARE YOUR SELECTED <span>&nbsp; NETFLIX &nbsp;</span>MOVIE DETAILS....</h1>
+    <div class="overlay"></div>
+    <main>
+        <h1>HERE ARE YOUR SELECTED <span>NETFLIX</span> MOVIE DETAILS</h1>
     <div class="container">
         <div class="left-column">
-            <img src="{{details[21]}}" alt="{{details[0]}}">
+            <img class="images" src="{{details[21]}}" alt="{{details[0]}}">
         </div>
         <div class="right-column">
             <div class="movie-description">
                 <span>{{details[19]}}</span>
+                <br>
                 <h2>{{details[0]}}</h2>
                 <p>{{details[18]}}</p>
             </div>
             <div class="movie-details">
-                <span>
-                    <p1>Genre:</p1> {{details[1]}}
-                </span><br>
-                <span>
-                    <p1>Available Languages:</p1> {{details[3]}}
-                </span><br>
-                <span>
-                    <p1>Available in Countries:</p1> {{details[4]}}
-                </span><br>
-                <span>
-                    <p1>IMDb Score:</p1> {{details[10]}}
-                </span><br>
-                <span>
-                    <p1>Viewers Rating:</p1> {{details[9]}}
-                </span><br>
+                <div><strong>Genre : </strong> {{details[1]}}</div>
+                <div><strong>Available Languages : </strong> {{details[3]}}</div>
+                <div><strong>Available in Countries : </strong> {{details[4]}}</div>
+                <div><strong>IMDb Score : </strong> {{details[10]}}</div>
+                <div><strong>Viewers Rating : </strong> {{details[9]}}</div>
             </div>
             <div class="movie-details">
-                <span>
-                    <p1>Director(s):</p1> {{details[6]}}
-                </span><br><br>
-                <span>
-                    <p1>Writer(s):</p1> {{details[7]}}
-                </span><br>
-                <span>
-                    <p1>Acting Cast:</p1> {{details[8]}}
-                </span><br>
-                <span>
-                    <p1>Production House(s):</p1> {{details[16]}}
-                </span><br>
-                <span>
-                    <p1>Boxoffice Collection:</p1> {{details[13]}}
-                </span><br>
-                <span>
-                    <p1>Nominated for Awards:</p1> {{details[12]}}
-                </span><br>
-                <span>
-                    <p1>Awards Won:</p1> {{details[11]}}
-                </span><br>
+                <div><strong>Director(s) : </strong> {{details[6]}}</div>
+                <div><strong>Writer(s) : </strong> {{details[7]}}</div>
+                <div><strong>Acting Cast : </strong> {{details[8]}}</div>
+                <div><strong>Production House(s) : </strong> {{details[16]}}</div>
+                <div><strong>Boxoffice Collection : </strong> {{details[13]}}</div>
+                <div><strong>Nominated for Awards : </strong> {{details[12]}}</div>
+                <div><strong>Awards Won : </strong> {{details[11]}}</div>
             </div>
             <div>
-                <a href="{{details[17]}}">Netflix Link</a>
+                <a href="{{details[17]}}" class="netflix-link">Watch on Netflix</a>
             </div>
         </div>
     </div>
+    </main>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script type="text/javascript" src="https://unpkg.com/sheryjs/dist/Shery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/automat/controlkit.js@master/bin/controlKit.min.js"></script>
 </body>
 
 </html>

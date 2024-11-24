@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONVERSA-AI | Your Movie Recommendation Partner</title>
+    <link rel="stylesheet" href="../static/ai.css">
+    <link rel="shortcut icon" href="../static/resources/nlogo.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <div class="left-nav">
+            <img src="../static/resources/main.png" alt="">
+            <h3>Conversa AI <span><i class="ri-robot-3-line"></i></span></h3>
+        </div>
+        <div class="right-nav">
+            <h3 id="Clear">Clear <span><i class="ri-eraser-line"></i></span></h3>
+            <h3 id="Share">Save <span><i class="ri-download-2-line"></i></span></h3>
+        </div>
+    </header>
+
+    <main>
+        <div class="chat-container">
+            <div class="ai-box">
+                <img src="../static/resources/nlogo.png" alt="AI Image" class="ai-img">
+                <div class="ai-chat-box">
+                    Hi there 👋, what type of movie / series you want to watch today ?
+                </div>
+            </div>
+        </div>
+        <div class="prompt-area">
+            <button id="p-img" aria-label="Attach Image">
+                <i class="ri-image-circle-fill"></i>
+                <input type="file" accept="image/*" id="image-input" hidden>
+                <img src="img.svg" alt="Selected Image" id="selected-image" class="hidden">
+            </button>
+            <input type="text" id="prompt" placeholder="What can I help with?">
+            <button id="submit" aria-label="Send Message">
+                <i class="ri-arrow-up-line"></i>
+            </button>
+        </div>
+    </main>
+
+    <footer>
+        <p>Conversa AI<span><i class="ri-robot-3-line"></i></span>, &nbsp; can make mistakes so double-check it.</p>
+    </footer>
+
+    <script src="../static/ai.js"></script>
+</body>
+
+</html>

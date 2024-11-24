@@ -1,20 +1,33 @@
-document.getElementById("signInButton").addEventListener("click", function () {
-  window.location.href = "login.html";
-});
+const signInButton = document.getElementById('signIn');
+  signInButton.addEventListener('click', () => {
+    window.location.href = './login.html';
+  });
 
-let accordian = document.getElementsByClassName("FAQ__title");
+  const signIn = document.getElementById('signInButton');
+  signIn.addEventListener('click', () => {
+    window.location.href = './login.html';
+  });
+  
 
-for (let i = 0; i < accordian.length; i++) {
-  accordian[i].addEventListener("click", function () {
-    if (this.childNodes[1].classList.contains("fa-plus")) {
-      this.childNodes[1].classList.remove("fa-plus");
-      this.childNodes[1].classList.add("fa-times");
+let accordians = document.getElementsByClassName("FAQ__title");
+
+for (let i = 0; i < accordians.length; i++) {
+  accordians[i].addEventListener("click", function () {
+    console.log("Accordion clicked");
+    let icon = this.querySelector('i');
+    console.log("Icon found: ", icon);
+
+    if (icon.classList.contains("fa-plus")) {
+      icon.classList.remove("fa-plus");
+      icon.classList.add("fa-times");
     } else {
-      this.childNodes[1].classList.remove("fa-times");
-      this.childNodes[1].classList.add("fa-plus");
+      icon.classList.remove("fa-times");
+      icon.classList.add("fa-plus");
     }
 
     let content = this.nextElementSibling;
+    console.log("Content: ", content);
+
     if (content.style.maxHeight) {
       content.style.maxHeight = null;
     } else {
@@ -22,6 +35,7 @@ for (let i = 0; i < accordian.length; i++) {
     }
   });
 }
+
 
 function toggleSignInForm() {
   const signInButton = document.getElementById("signInButton");
@@ -35,8 +49,6 @@ function toggleSignInForm() {
     signInButton.setAttribute("onclick", "signIn()");
   }
 }
-
-
 
 function signUp() {
   const email = document.getElementById("email").value;
@@ -70,3 +82,4 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+

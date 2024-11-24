@@ -24,6 +24,7 @@ html {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+
 }
 
 .header,
@@ -34,84 +35,149 @@ html {
   text-align: center;
 }
 
+.header img {
+  margin-top: 15px;
+  width: 170px;
+}
+
 .footer {
   bottom: 0;
 }
 
 .form-container {
-  background-image: url('./netflixteaser.jpg');
+  background-image: url('https://w0.peakpx.com/wallpaper/62/1005/HD-wallpaper-netflix-streaks-abstract-background-blue-colors-colour-colours-dark-neon-netflix.jpg');
   background-size: cover;
   background-position: center;
   padding: 40px;
-  border-radius: 10px;
-  -webkit-box-shadow: 0 0 50px rgba(241, 98, 98, 0.3);
-  box-shadow: 0 0 50px rgba(241, 98, 98, 0.3);
-  width: 90%;
-  height: 35%;
-  max-width: 600px;
-  /* Keep max-width for larger screens */
-}
-
-.auth-form {
-  width: 100%;
-}
-
-.form-title {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #ffffff;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.input-group {
-  display: -webkit-box;
-  display: -ms-flexbox;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 20px rgba(241, 98, 98, 0.3);
+  box-shadow: 0 0 20px rgba(241, 98, 98, 0.3);
+  width: 40%;
+  height: 100%;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  position: absolute;
+  display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 10px;
+  background-color: #ffffff;
+  padding: 40px;
+  width: 350px;
+  border-radius: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.input-field {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.8);
+::placeholder {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.submit-btn {
-  margin-top: 40px;
-  width: 100%;
-  padding: 10px;
-  background-color: #e50914;
-  color: #fff;
+.form button {
+  align-self: flex-end;
+}
+
+.flex-column>label {
+  color: #151717;
+  font-weight: 600;
+}
+
+.inputForm {
+  border: 1.5px solid #ecedec;
+  border-radius: 10px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  transition: 0.2s ease-in-out;
+}
+
+.input {
+  margin-left: 10px;
+  border-radius: 10px;
   border: none;
-  border-radius: 5px;
+  width: 85%;
+  height: 100%;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.inputForm:focus-within {
+  border: 1.5px solid #2d79f3;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.flex-row>div>label {
+  font-size: 14px;
+  color: black;
+  font-weight: 400;
+}
+
+.span {
+  font-size: 14px;
+  margin-left: 5px;
+  color: #2d79f3;
+  font-weight: 500;
   cursor: pointer;
-  -webkit-transition: background-color 0.3s ease;
-  -o-transition: background-color 0.3s ease;
-  transition: background-color 0.3s ease;
 }
 
-.submit-btn:hover {
-  background-color: #ff0f27;
+.button-submit {
+  margin: 20px 0 10px 0;
+  background-color: #151717;
+  border: none;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 10px;
+  height: 50px;
+  width: 100%;
+  cursor: pointer;
 }
 
-.form-text {
-  color: #ffffff;
+.button-submit:hover {
+  background-color: #252727;
+}
+
+.p {
   text-align: center;
-  margin-top: 1rem;
+  color: black;
+  font-size: 14px;
+  margin: 5px 0;
 }
 
-.toggle-form {
-  color: #ffffff;
-  text-decoration: underline;
+.btn {
+  margin-top: 10px;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  gap: 10px;
+  border: 1px solid #ededef;
+  background-color: white;
   cursor: pointer;
+  transition: 0.2s ease-in-out;
 }
+
+.btn:hover {
+  border: 1px solid #2d79f3;
+  ;
+}
+
+
 
 .footer {
   position: fixed;

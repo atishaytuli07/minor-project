@@ -4,58 +4,277 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Netflix Recommendation System</title>
+  <title>NC-AI | N.R.S.</title>
   <link rel="stylesheet" href="../static/sstyle.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="../static/multiselect.min.js"></script>
   <link rel="stylesheet" href="../static/multiselect.css">
+
   <style>
-    body {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../static/home-bg.jpg');
-      background-size: cover;
-      color: white;
-      font-family: Arial, sans-serif;
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Teko:wght@400;700&display=swap');
+
+    * {
       margin: 0;
       padding: 0;
-      overflow-x: hidden;
+      box-sizing: border-box;
     }
 
-    .logo {
-      width: 40%;
-      max-width: 200px;
-      height: auto;
-      display: block;
-      margin: 20px auto;
+    html,
+    body {
+      width: 100%;
+      height: 100%;
     }
 
-    .content {
-      text-align: center;
-      margin-top: 2%;
+    header {
+      position: absolute;
+      top: 0;
       padding: 20px;
+      width: 100%;
+    }
+
+    nav {
+      padding: 20px 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav .logo {
+      width: 120px;
+    }
+
+    .plane-switch {
+      --dot: #fff;
+      --street: #6B6D76;
+      --street-line: #A8AAB4;
+      --street-line-mid: #C0C2C8;
+      --sky-1: #60A7FA;
+      --sky-2: #2F8EFC;
+      --light-1: rgba(255, 233, 0, 1);
+      --light-2: rgba(255, 233, 0, .3);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .plane-switch input {
+      display: none;
+    }
+
+    .plane-switch input+div {
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+      position: relative;
+      overflow: hidden;
+      width: 50px;
+      height: 25px;
+      padding: 1px;
+      border-radius: 13px;
+      background: linear-gradient(90deg, var(--street) 0%, var(--street) 25%, var(--sky-1) 75%, var(--sky-2) 100%) left var(--p, 0%) top 0;
+      background-position-x: var(--p, 0%);
+      background-size: 400% auto;
+      transition: background-position 0.6s;
+    }
+
+    .plane-switch input+div:before,
+    .plane-switch input+div:after {
+      content: "";
+      display: block;
+      position: absolute;
+      transform: translateX(var(--s, 0));
+      transition: transform 0.3s;
+    }
+
+    .plane-switch input+div:before {
+      width: 42px;
+      right: 2px;
+      top: 4px;
+      height: 1px;
+      background: var(--street-line);
+      box-shadow: 0 16px 0 0 var(--street-line);
+    }
+
+    .plane-switch input+div:after {
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      left: 23px;
+      top: 1px;
+      -webkit-animation: lights2 2s linear infinite;
+      animation: lights2 2s linear infinite;
+      box-shadow: inset 0 0 0 2px var(--light-1), 0 21px 0 var(--light-1), 8px 0 0 var(--light-2), 8px 21px 0 var(--light-2), 16px 0 0 var(--light-2), 16px 21px 0 var(--light-2);
+    }
+
+    .plane-switch input+div span {
+      display: block;
+      position: absolute;
+    }
+
+    .plane-switch input+div span.street-middle {
+      top: 12px;
+      left: 21px;
+      width: 3px;
+      height: 1px;
+      transform: translateX(var(--s, 0));
+      background: var(--street-line-mid);
+      box-shadow: 5px 0 0 var(--street-line-mid), 10px 0 0 var(--street-line-mid), 15px 0 0 var(--street-line-mid), 20px 0 0 var(--street-line-mid), 25px 0 0 var(--street-line-mid);
+      transition: transform 0.3s;
+    }
+
+    .plane-switch input+div span.cloud {
+      width: 12px;
+      height: 4px;
+      border-radius: 2px;
+      background: #fff;
+      position: absolute;
+      top: var(--ct, 8px);
+      left: 100%;
+      opacity: var(--co, 0);
+      transition: opacity 0.3s;
+      -webkit-animation: clouds2 2s linear infinite var(--cd, 0s);
+      animation: clouds2 2s linear infinite var(--cd, 0s);
+    }
+
+    .plane-switch input+div span.cloud:before,
+    .plane-switch input+div span.cloud:after {
+      content: "";
+      position: absolute;
+      transform: translateX(var(--cx, 0));
+      border-radius: 50%;
+      width: var(--cs, 5px);
+      height: var(--cs, 5px);
+      background: #fff;
+      bottom: 1px;
+      left: 1px;
+    }
+
+    .plane-switch input+div span.cloud:after {
+      --cs: 6px;
+      --cx: 4px;
+    }
+
+    .plane-switch input+div span.cloud.two {
+      --ct: 20px;
+      --cd: 1s;
+      opacity: var(--co-2, 0);
+    }
+
+    .plane-switch input+div div {
+      display: table;
+      position: relative;
+      z-index: 1;
+      padding: 5px;
+      border-radius: 50%;
+      background: var(--dot);
+      transform: translateX(var(--x, 0));
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.35, 1.2);
+    }
+
+    .plane-switch input+div div svg {
+      width: 13px;
+      height: 13px;
+      display: block;
+      color: var(--c, var(--street));
+      transition: color 0.6s;
+    }
+
+    .plane-switch input:checked+div {
+      --p: 100%;
+      --x: 25px;
+      --s: -50px;
+      --c: var(--sky-2);
+      --co: .8;
+      --co-2: .6;
+    }
+
+    @keyframes lights2 {
+
+      20%,
+      30% {
+        box-shadow: inset 0 0 0 2px var(--light-2), 0 21px 0 var(--light-2), 8px 0 0 var(--light-1), 8px 21px 0 var(--light-1), 16px 0 0 var(--light-2), 16px 21px 0 var(--light-2);
+      }
+
+      55%,
+      65% {
+        box-shadow: inset 0 0 0 2px var(--light-2), 0 21px 0 var(--light-2), 8px 0 0 var(--light-2), 8px 21px 0 var(--light-2), 16px 0 0 var(--light-1), 16px 21px 0 var(--light-1);
+      }
+
+      90%,
+      100% {
+        box-shadow: inset 0 0 0 2px var(--light-1), 0 21px 0 var(--light-1), 8px 0 0 var(--light-2), 8px 21px 0 var(--light-2), 16px 0 0 var(--light-2), 16px 21px 0 var(--light-2);
+      }
+    }
+
+    @keyframes clouds2 {
+      97% {
+        transform: translateX(-72px);
+        visibility: visible;
+      }
+
+      98%,
+      100% {
+        visibility: hidden;
+      }
+
+      99% {
+        transform: translateX(-72px);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    body {
+      background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('https://wallpapers.com/images/hd/netflix-background-6eijmcazwfrb9u6w.jpg');
+      background-size: cover;
+      color: #fff;
+      font-family: 'Roboto', sans-serif;
+      transition: background-image 0.5s ease;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      padding: 40px;
     }
 
     h1 {
-      font-size: 3em;
+      font-family: 'Teko', serif;
+      font-size: 3.5rem;
+      font-weight: 500;
+      text-transform: uppercase;
       color: #e50914;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
     }
 
     form p {
-      font-size: 1.2em;
-      color: white;
-      margin: 25px 0;
+      font-size: 1.3rem;
+      margin: 15px 0;
     }
 
     select,
     input[type="submit"] {
-      padding: 12px;
+      padding: 10px;
       background-color: #e50914;
       color: white;
-      font-size: 1em;
+      font-size: 1rem;
       border: none;
-      border-radius: 5px;
+      border-radius: 20px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      width: 20%;
+      margin-bottom: 5px;
+    }
+
+    select:hover,
+    input[type="submit"]:hover {
+      background-color: #ffffff;
+      color: #f00a16;
     }
 
     select:focus,
@@ -63,136 +282,124 @@
       outline: none;
     }
 
-    select:hover,
-    input[type="submit"]:hover {
-      background-color: #ff3c26;
-    }
-
-    select,
-    input[type="submit"],
-    .multiselect-wrapper {
-      width: 80%;
-      max-width: 400px;
-      margin: 0 auto;
-      display: block;
-    }
-
     input[type="submit"] {
       margin-top: 20px;
     }
 
+    footer {
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+
+    }
+
     @media (max-width: 768px) {
       h1 {
-        font-size: 1.5em;
+        font-size: 2.5rem;
       }
 
       select,
-      input[type="submit"],
-      .multiselect-wrapper {
-        width: 90%;
+      input[type="submit"] {
+        font-size: 1rem;
       }
     }
 
     @media (max-width: 450px) {
       h1 {
-        font-size: 1.5em;
-        margin-top: -50px;
+        font-size: 2rem;
       }
 
       .logo {
-        width: 70%;
-      }
-
-      select,
-      input[type="submit"],
-      .multiselect-wrapper {
-        width: 80%;
+        width: 140px;
       }
     }
   </style>
+
 </head>
 
 <body>
-  <img src="../static/logo.svg" class="logo" />
-  <div class="content">
-    <h1>Netflix Recommendation System</h1>
-    <form name="passdata" action="/about" method="post">
-      <p>Select at least 4 TV Show/Movie Names that you like:</p>
-      <select name="titles" multiple id="titles">
-        {% for title in titles %}
-        <option value="{{title}}">{{title}}</option>
-        {% endfor %}
-      </select>
-      <p>Select Languages that you prefer:</p>
-      <select name="languages" multiple id="languages">
-        {% for language in languages %}
-        <option value="{{language}}">{{language}}</option>
-        {% endfor %}
-      </select>
-      <input type="submit" value="Get Started">
-    </form>
-  </div>
-  <div class="loader">
-    <div class="truckWrapper">
-      <div class="truckBody">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 198 93" class="trucksvg">
-          <path stroke-width="3" stroke="#282828" fill="#F83D3D"
-            d="M135 22.5H177.264C178.295 22.5 179.22 23.133 179.594 24.0939L192.33 56.8443C192.442 57.1332 192.5 57.4404 192.5 57.7504V89C192.5 90.3807 191.381 91.5 190 91.5H135C133.619 91.5 132.5 90.3807 132.5 89V25C132.5 23.6193 133.619 22.5 135 22.5Z">
-          </path>
-          <path stroke-width="3" stroke="#282828" fill="#7D7C7C"
-            d="M146 33.5H181.741C182.779 33.5 183.709 34.1415 184.078 35.112L190.538 52.112C191.16 53.748 189.951 55.5 188.201 55.5H146C144.619 55.5 143.5 54.3807 143.5 53V36C143.5 34.6193 144.619 33.5 146 33.5Z">
-          </path>
-          <path stroke-width="2" stroke="#282828" fill="#282828"
-            d="M150 65C150 65.39 149.763 65.8656 149.127 66.2893C148.499 66.7083 147.573 67 146.5 67C145.427 67 144.501 66.7083 143.873 66.2893C143.237 65.8656 143 65.39 143 65C143 64.61 143.237 64.1344 143.873 63.7107C144.501 63.2917 145.427 63 146.5 63C147.573 63 148.499 63.2917 149.127 63.7107C149.763 64.1344 150 64.61 150 65Z">
-          </path>
-          <rect stroke-width="2" stroke="#282828" fill="#FFFCAB" rx="1" height="7" width="5" y="63" x="187"></rect>
-          <rect stroke-width="2" stroke="#282828" fill="#282828" rx="1" height="11" width="4" y="81" x="193"></rect>
-          <rect stroke-width="3" stroke="#282828" fill="#DFDFDF" rx="2.5" height="90" width="121" y="1.5" x="6.5">
-          </rect>
-          <rect stroke-width="2" stroke="#282828" fill="#DFDFDF" rx="2" height="4" width="6" y="84" x="1"></rect>
-        </svg>
-      </div>
-      <div class="truckTires">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 30 30" class="tiresvg">
-          <circle stroke-width="3" stroke="#282828" fill="#282828" r="13.5" cy="15" cx="15"></circle>
-          <circle fill="#DFDFDF" r="7" cy="15" cx="15"></circle>
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 30 30" class="tiresvg">
-          <circle stroke-width="3" stroke="#282828" fill="#282828" r="13.5" cy="15" cx="15"></circle>
-          <circle fill="#DFDFDF" r="7" cy="15" cx="15"></circle>
-        </svg>
-      </div>
-      <div class="road"></div>
 
-      <svg xml:space="preserve" viewBox="0 0 453.459 453.459" xmlns:xlink="http://www.w3.org/1999/xlink"
-        xmlns="http://www.w3.org/2000/svg" id="Capa_1" version="1.1" fill="#000000" class="lampPost">
-        <path d="M252.882,0c-37.781,0-68.686,29.953-70.245,67.358h-6.917v8.954c-26.109,2.163-45.463,10.011-45.463,19.366h9.993
-      c-1.65,5.146-2.507,10.54-2.507,16.017c0,28.956,23.558,52.514,52.514,52.514c28.956,0,52.514-23.558,52.514-52.514
-      c0-5.478-0.856-10.872-2.506-16.017h9.992c0-9.354-19.352-17.204-45.463-19.366v-8.954h-6.149C200.189,38.779,223.924,16,252.882,16
-      c29.952,0,54.32,24.368,54.32,54.32c0,28.774-11.078,37.009-25.105,47.437c-17.444,12.968-37.216,27.667-37.216,78.884v113.914
-      h-0.797c-5.068,0-9.174,4.108-9.174,9.177c0,2.844,1.293,5.383,3.321,7.066c-3.432,27.933-26.851,95.744-8.226,115.459v11.202h45.75
-      v-11.202c18.625-19.715-4.794-87.527-8.227-115.459c2.029-1.683,3.322-4.223,3.322-7.066c0-5.068-4.107-9.177-9.176-9.177h-0.795
-      V196.641c0-43.174,14.942-54.283,30.762-66.043c14.793-10.997,31.559-23.461,31.559-60.277C323.202,31.545,291.656,0,252.882,0z
-      M232.77,111.694c0,23.442-19.071,42.514-42.514,42.514c-23.442,0-42.514-19.072-42.514-42.514c0-5.531,1.078-10.957,3.141-16.017
-      h78.747C231.693,100.736,232.77,106.162,232.77,111.694z"></path>
-      </svg>
+  <header>
+    <nav>
+      <img src="../static/logo.svg" class="logo" />
+      <label class="plane-switch">
+        <input type="checkbox" id="bgToggle">
+        <div>
+          <div>
+            <svg viewBox="0 0 13 13">
+              <path
+                d="M1.55989957,5.41666667 L5.51582215,5.41666667 L4.47015462,0.108333333 L4.47015462,0.108333333 C4.47015462,0.0634601974 4.49708054,0.0249592654 4.5354546,0.00851337035 L4.57707145,0 L5.36229752,0 C5.43359776,0 5.50087375,0.028779451 5.55026392,0.0782711996 L5.59317877,0.134368264 L7.13659662,2.81558333 L8.29565964,2.81666667 C8.53185377,2.81666667 8.72332694,3.01067661 8.72332694,3.25 C8.72332694,3.48932339 8.53185377,3.68333333 8.29565964,3.68333333 L7.63589819,3.68225 L8.63450135,5.41666667 L11.9308317,5.41666667 C12.5213171,5.41666667 13,5.90169152 13,6.5 C13,7.09830848 12.5213171,7.58333333 11.9308317,7.58333333 L8.63450135,7.58333333 L7.63589819,9.31666667 L8.29565964,9.31666667 C8.53185377,9.31666667 8.72332694,9.51067661 8.72332694,9.75 C8.72332694,9.98932339 8.53185377,10.1833333 8.29565964,10.1833333 L7.13659662,10.1833333 L5.59317877,12.8656317 C5.55725264,12.9280353 5.49882018,12.9724157 5.43174295,12.9907056 L5.36229752,13 L4.57707145,13 L4.55610333,12.9978962 C4.51267695,12.9890959 4.48069792,12.9547924 4.47230803,12.9134397 L4.47223088,12.8704208 L5.51582215,7.58333333 L1.55989957,7.58333333 L0.891288881,8.55114605 C0.853775374,8.60544678 0.798421006,8.64327676 0.73629202,8.65879796 L0.672314689,8.66666667 L0.106844414,8.66666667 L0.0715243949,8.66058466 L0.0715243949,8.66058466 C0.0297243066,8.6457608 0.00275502199,8.60729104 0,8.5651586 L0.00593007386,8.52254537 L0.580855011,6.85813984 C0.64492547,6.67265611 0.6577034,6.47392717 0.619193545,6.28316421 L0.580694768,6.14191703 L0.00601851064,4.48064746 C0.00203480725,4.4691314 0,4.45701613 0,4.44481314 C0,4.39994001 0.0269259152,4.36143908 0.0652999725,4.34499318 L0.106916826,4.33647981 L0.672546853,4.33647981 C0.737865848,4.33647981 0.80011301,4.36066329 0.848265401,4.40322477 L0.89131128,4.45169723 L1.55989957,5.41666667 Z"
+                fill="currentColor"></path>
+            </svg>
+          </div>
+          <span class="street-middle"></span>
+          <span class="cloud"></span>
+          <span class="cloud two"></span>
+        </div>
+      </label>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>Netflix &nbsp;Recommendation &nbsp;System</h1>
+      <form name="passdata" action="/about" method="post">
+        <p>Select at least 4 TV Show / Movie Names that you like :</p>
+        <select name="titles" multiple id="titles">
+          {% for title in titles %}
+          <option value="{{title}}">{{title}}</option>
+          {% endfor %}
+        </select>
+        <p>Select Languages that you prefer :</p>
+        <select name="languages" multiple id="languages">
+          {% for language in languages %}
+          <option value="{{language}}">{{language}}</option>
+          {% endfor %}
+        </select>
+        <br><br>
+        <input type="submit" value="Get Started">
+      </form>
     </div>
-  </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Netflix Conversa AI, All Rights Reserved.</p>
+  </footer>
 
   <script>
+
     $('#titles').multiselect({
       columns: 1,
       placeholder: 'Select Titles',
       search: true,
       selectAll: true
     });
+
     $('#languages').multiselect({
       columns: 1,
       placeholder: 'Select Languages',
       search: true,
       selectAll: true
     });
+
+    const toggle = document.getElementById('bgToggle');
+    const body = document.body;
+
+    toggle.addEventListener('change', function () {
+      if (this.checked) {
+        body.style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('https://wallpapercat.com/w/full/1/b/8/116492-2560x1488-desktop-hd-netflix-background-image.jpg')";
+      } else {
+        body.style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('https://wallpapers.com/images/hd/netflix-background-6eijmcazwfrb9u6w.jpg')";
+      }
+    });
+
+
+
   </script>
+
 </body>
 
 </html>

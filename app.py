@@ -8,7 +8,9 @@ from sklearn.metrics.pairwise import cosine_similarity
 import google.generativeai as genai
 import os
 import re
+from dotenv import load_dotenv
 
+load_dotenv()
 
 app = Flask(__name__)
 
@@ -32,12 +34,17 @@ def page():
 def gpt():
     return render_template("gpt.html")
 
+@app.route("/aic.html")
+def aic():
+    return render_template("aic.html")
+
 
 @app.route("/suggest_movies", methods=["POST"])
 def suggest_movies():
     data = request.json
     genre = data["genre"].lower()
-    prompt = f"Generate a python list of at least 20 Netflix best movie recommendations based on the genre {genre}.Each recommendation should include the movie name and its rating on a scale of 1 to 10,formatted as Movie Name ; Rating.Ensure that all recommendations match the genre provided. Output only the list."
+    prompt = f"Generate a python list of at least 30 Netflix best movie recommendations based on the genre {genre}.Each recommendation should include the movie name and its rating on a scale of 1 to 10,formatted as Movie Name ; Rating.Ensure that all recommendations match the genre provided. Output only the list."
+
 
     genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 

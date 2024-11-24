@@ -6,6 +6,7 @@
 }
 
 body {
+  position: relative;
   background-color: black;
   color: white;
   font-family: "Poppins", sans-serif;
@@ -27,10 +28,11 @@ body {
 }
 
 .navbar__brand {
-  width: 100px;
+  width: 150px;
   height: 100%;
   margin-top: 10px;
 }
+
 
 .brand__logo {
   width: 100%;
@@ -201,17 +203,20 @@ button:hover span:not(:nth-child(6)) {
   -ms-flex-direction: column;
   flex-direction: column;
   gap: 10px;
-  top: 30%;
-  left: 15%;
+  transform: translate(50%, -13%);
 }
 
 .hero__title {
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
-.hero__subtitle {
-  margin-top: 50px;
+.hero__title span{
+  color: #dc030f;
+}
+
+.hero__subtitle{
+  padding-top: 20px;
 }
 
 .hero__subtitle,
@@ -244,28 +249,21 @@ button:hover span:not(:nth-child(6)) {
 }
 
 .email__form__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  margin-top: 20px;
+  justify-content: center;
+  margin-top: 100px;
   gap: 15px;
 }
 
 .form__container {
-  background-color: white;
-  width: 90%;
+  background-color: rgba(255, 255, 255, 0.897);
+  width: 77%;
   height: 50px;
   position: relative;
+  outline: none;
+  border-radius: 10px;
+  color: black;
 }
 
 .email__input:focus+.email__label {
@@ -297,10 +295,21 @@ button:hover span:not(:nth-child(6)) {
   border: 1px solid #dc030f;
   color: white;
   padding: 0.8rem 1.2rem;
-  border-radius: 2px;
+  border-radius: 10px;
   font-size: 15px;
   letter-spacing: 1px;
+  width: 23%;
 }
+
+#foot h3 {
+  color: #dc030f;
+}
+
+#foot span {
+  color: white;
+  font-weight: 400;
+}
+
 
 @media (max-width: 450px) {
   body {
@@ -381,213 +390,6 @@ button:hover span:not(:nth-child(6)) {
     width: 100%;
   }
 
-  .loader {
-    display: inline;
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    z-index: 10;
-    width: 160px;
-    height: 100px;
-    margin-left: -80px;
-    margin-top: -50px;
-    border-radius: 5px;
-    background: #ee2121;
-    -webkit-animation: dot1_ 3s cubic-bezier(0.55, 0.3, 0.24, 0.99) infinite;
-    animation: dot1_ 3s cubic-bezier(0.55, 0.3, 0.24, 0.99) infinite;
-  }
-
-  .loader:nth-child(2) {
-    z-index: 11;
-    width: 150px;
-    height: 90px;
-    margin-top: -45px;
-    margin-left: -75px;
-    border-radius: 3px;
-    background: #3c517d;
-    -webkit-animation-name: dot2_;
-    animation-name: dot2_;
-  }
-
-  .loader:nth-child(3) {
-    z-index: 12;
-    width: 40px;
-    height: 20px;
-    margin-top: 50px;
-    margin-left: -20px;
-    border-radius: 0 0 5px 5px;
-    background: #6bb2cd;
-    -webkit-animation-name: dot3_;
-    animation-name: dot3_;
-  }
-
-  @-webkit-keyframes dot1_ {
-
-    3%,
-    97% {
-      width: 160px;
-      height: 100px;
-      margin-top: -50px;
-      margin-left: -80px;
-    }
-
-    30%,
-    36% {
-      width: 80px;
-      height: 120px;
-      margin-top: -60px;
-      margin-left: -40px;
-    }
-
-    63%,
-    69% {
-      width: 40px;
-      height: 80px;
-      margin-top: -40px;
-      margin-left: -20px;
-    }
-  }
-
-  @keyframes dot1_ {
-
-    3%,
-    97% {
-      width: 160px;
-      height: 100px;
-      margin-top: -50px;
-      margin-left: -80px;
-    }
-
-    30%,
-    36% {
-      width: 80px;
-      height: 120px;
-      margin-top: -60px;
-      margin-left: -40px;
-    }
-
-    63%,
-    69% {
-      width: 40px;
-      height: 80px;
-      margin-top: -40px;
-      margin-left: -20px;
-    }
-  }
-
-  @-webkit-keyframes dot2_ {
-
-    3%,
-    97% {
-      height: 90px;
-      width: 150px;
-      margin-left: -75px;
-      margin-top: -45px;
-    }
-
-    30%,
-    36% {
-      width: 70px;
-      height: 96px;
-      margin-left: -35px;
-      margin-top: -48px;
-    }
-
-    63%,
-    69% {
-      width: 32px;
-      height: 60px;
-      margin-left: -16px;
-      margin-top: -30px;
-    }
-  }
-
-  @keyframes dot2_ {
-
-    3%,
-    97% {
-      height: 90px;
-      width: 150px;
-      margin-left: -75px;
-      margin-top: -45px;
-    }
-
-    30%,
-    36% {
-      width: 70px;
-      height: 96px;
-      margin-left: -35px;
-      margin-top: -48px;
-    }
-
-    63%,
-    69% {
-      width: 32px;
-      height: 60px;
-      margin-left: -16px;
-      margin-top: -30px;
-    }
-  }
-
-  @-webkit-keyframes dot3_ {
-
-    3%,
-    97% {
-      height: 20px;
-      width: 40px;
-      margin-left: -20px;
-      margin-top: 50px;
-    }
-
-    30%,
-    36% {
-      width: 8px;
-      height: 8px;
-      margin-left: -5px;
-      margin-top: 49px;
-      border-radius: 8px;
-    }
-
-    63%,
-    69% {
-      width: 16px;
-      height: 4px;
-      margin-left: -8px;
-      margin-top: -37px;
-      border-radius: 10px;
-    }
-  }
-
-  @keyframes dot3_ {
-
-    3%,
-    97% {
-      height: 20px;
-      width: 40px;
-      margin-left: -20px;
-      margin-top: 50px;
-    }
-
-    30%,
-    36% {
-      width: 8px;
-      height: 8px;
-      margin-left: -5px;
-      margin-top: 49px;
-      border-radius: 8px;
-    }
-
-    63%,
-    69% {
-      width: 16px;
-      height: 4px;
-      margin-left: -8px;
-      margin-top: -37px;
-      border-radius: 10px;
-    }
-  }
-}
-
 #foot {
   margin: 20px;
   margin-left: -50px;
@@ -598,8 +400,12 @@ button:hover span:not(:nth-child(6)) {
 
 #foot h3 {
   font-size: 1rem;
+  color: #dc030f;
 }
 
-#foot p {
+#foot span {
   font-size: 0.7rem;
+  font-weight: 100;
+}
+
 }

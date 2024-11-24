@@ -10,16 +10,22 @@
 </head>
 
 <body>
-    <div class="page">
-        <h1>HERE ARE YOUR <span>&nbsp; NETFLIX &nbsp;</span>RECOMMENDATIONS....</h1>
-        <div class="image-grid">
-            {% for image in images %}
-            <a href="{{ url_for('movie_details', name=titles[loop.index0]) }}" class="image-link">
-                <img src="{{ image }}" alt="Movie Image" class="movie-image">
-            </a>
-            {% endfor %}
+    <div class="overlay"></div>
+    <main>
+        <div class="page">
+            <h1>&nbsp; HERE ARE YOUR &nbsp;<span>
+                    <div class="loader"></div> NETFLIX &nbsp;
+                </span>RECOMMENDATIONS &nbsp;</h1>
+            <br>
+            <div class="image-grid">
+                {% for image in images %}
+                <a href="{{ url_for('movie_details', name=titles[loop.index0]) }}" class="image-link">
+                    <img src="{{ image }}" alt="Movie Image" class="movie-image">
+                </a>
+                {% endfor %}
+            </div>
         </div>
-    </div>
+    </main>
 </body>
 
 </html>

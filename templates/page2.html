@@ -4,6 +4,7 @@
   <meta name="description" content="Hello this is my first web page!." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../static/styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,65 +24,29 @@
       </div>
 
       <div class="navbar__nav__items">
-        <div class="nav__item">
-          <div class="dropdown__container">
-            <i class="fas fa-globe"></i>
-            <select name="languages" id="languagesSelect" class="language__drop__down">
-              <option value="english" selected style="color: black;">English</option>
-              <option value="hindi" style="color: black;">हिन्दी</option>
-            </select>
-          </div>
-        </div>
 
         <div class="nav__item">
-          <button class="reward-btn gpt-search-btn">
-            <span class="IconContainer">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 60 20" class="box-top box">
-                <path stroke-linecap="round" stroke-width="4" stroke="#6A8EF6" d="M2 18L58 18"></path>
-                <circle stroke-width="5" stroke="#6A8EF6" fill="#101218" r="7" cy="9.5" cx="20.5"></circle>
-                <circle stroke-width="5" stroke="#6A8EF6" fill="#101218" r="7" cy="9.5" cx="38.5"></circle>
-              </svg>
+          <a class="nav__items" href="https://research.netflix.com/research-area/recommendations">What ?</a>
+          <a class="nav__items" href="./gpt.html">GPT Search</a>
+          <a class="nav__items" href="indexa.html">ML Recomendation</a>
+          <a class="nav__items" href="https://nextflix-azure.vercel.app/browse">Browse</a>
+          <a class="nav__items " href="./aic.html">AI Chat</a>
 
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 58 44" class="box-body box">
-                <mask fill="white" id="path-1-inside-1_81_19">
-                  <rect rx="3" height="44" width="58"></rect>
-                </mask>
-                <rect mask="url(#path-1-inside-1_81_19)" stroke-width="8" stroke="#6A8EF6" fill="#101218" rx="3"
-                  height="44" width="58"></rect>
-                <line stroke-width="6" stroke="#6A8EF6" y2="29" x2="58" y1="29" x1="-3.61529e-09"></line>
-                <path stroke-linecap="round" stroke-width="5" stroke="#6A8EF6" d="M45.0005 20L36 3"></path>
-                <path stroke-linecap="round" stroke-width="5" stroke="#6A8EF6" d="M21 3L13.0002 19.9992"></path>
-              </svg>
+          <button
+            class="group helloa relative outline-0 bg-sky-200 [--sz-btn:50px] [--space:calc(var(--sz-btn)/5.5)] [--gen-sz:calc(var(--space)*2)] [--sz-text:calc(var(--sz-btn)-var(--gen-sz))] h-[var(--sz-btn)] w-[var(--sz-btn)] border border-solid border-transparent rounded-xl flex items-center justify-center aspect-square cursor-pointer transition-transform duration-200 active:scale-[0.95] bg-[linear-gradient(45deg,#efad21,#ffd60f)] [box-shadow:#3c40434d_0_1px_2px_0,#3c404326_0_2px_6px_2px,#0000004d_0_30px_60px_-30px,#34343459_0_-2px_6px_0_inset]">
+            <svg
+              class="animate-pulse absolute z-10 overflow-visible transition-all duration-300 text-[#ffea50] group-hover:text-white top-[calc(var(--sz-text)/7)] left-[calc(var(--sz-text)/7)] h-[var(--gen-sz)] w-[var(--gen-sz)] group-hover:h-[var(--sz-text)] group-hover:w-[var(--sz-text)] group-hover:left-[calc(var(--sz-text)/4)] group-hover:top-[calc(calc(var(--gen-sz))/2)]"
+              stroke="none" viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M9 4.5a.75.75 0 01.721.544l.813 2.846a3.75 3.75 0 002.576 2.576l2.846.813a.75.75 0 010 1.442l-2.846.813a3.75 3.75 0 00-2.576 2.576l-.813 2.846a.75.75 0 01-1.442 0l-.813-2.846a3.75 3.75 0 00-2.576-2.576l-2.846-.813a.75.75 0 010-1.442l2.846-.813A3.75 3.75 0 007.466 7.89l.813-2.846A.75.75 0 019 4.5zM18 1.5a.75.75 0 01.728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 010 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 01-1.456 0l-.258-1.036a2.625 2.625 0 00-1.91-1.91l-1.036-.258a.75.75 0 010-1.456l1.036-.258a2.625 2.625 0 001.91-1.91l.258-1.036A.75.75 0 0118 1.5zM16.5 15a.75.75 0 01.712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 010 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 01-1.422 0l-.395-1.183a1.5 1.5 0 00-.948-.948l-1.183-.395a.75.75 0 010-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0116.5 15z">
+              </path>
+            </svg>
 
-              <span class="coin"></span>
-            </span>
-            <span class="text"><a href="./gpt.html">GPT&nbsp;&nbsp;Search</a></span>
+            <span
+              class="[font-size:var(--sz-text)] font-extrabold leading-none text-white transition-all duration-200 group-hover:opacity-0">AI</span>
           </button>
-          <button class="reward-btn">
-            <span class="IconContainer">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 60 20" class="box-top box">
-                <path stroke-linecap="round" stroke-width="4" stroke="#6A8EF6" d="M2 18L58 18"></path>
-                <circle stroke-width="5" stroke="#6A8EF6" fill="#101218" r="7" cy="9.5" cx="20.5"></circle>
-                <circle stroke-width="5" stroke="#6A8EF6" fill="#101218" r="7" cy="9.5" cx="38.5"></circle>
-              </svg>
-
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 58 44" class="box-body box">
-                <mask fill="white" id="path-1-inside-1_81_19">
-                  <rect rx="3" height="44" width="58"></rect>
-                </mask>
-                <rect mask="url(#path-1-inside-1_81_19)" stroke-width="8" stroke="#6A8EF6" fill="#101218" rx="3"
-                  height="44" width="58"></rect>
-                <line stroke-width="6" stroke="#6A8EF6" y2="29" x2="58" y1="29" x1="-3.61529e-09"></line>
-                <path stroke-linecap="round" stroke-width="5" stroke="#6A8EF6" d="M45.0005 20L36 3"></path>
-                <path stroke-linecap="round" stroke-width="5" stroke="#6A8EF6" d="M21 3L13.0002 19.9992"></path>
-              </svg>
-
-              <span class="coin"></span>
-            </span>
-            <span class="text"><a href="indexa.html">Recomendation</a></span>
-          </button>
-
         </div>
+
       </div>
     </nav>
   </header>
@@ -89,9 +54,8 @@
   <main>
     <section class="hero">
       <div class="hero__bg__image__container">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/9c5457b8-9ab0-4a04-9fc1-e608d5670f1a/710d74e0-7158-408e-8d9b-23c219dee5df/IN-en-20210719-popsignuptwoweeks-perspective_alpha_website_small.jpg"
-          alt="BG hero image" class="hero__bg__image" />
+        <img src="https://images.hdqwalls.com/download/2020-money-heist-netflix-nk-1920x1080.jpg" alt="BG hero image"
+          class="hero__bg__image" />
       </div>
       <div class="hero__bg__overlay"></div>
 
@@ -116,40 +80,20 @@
           </button>
         </div>
         <div id="buttonss">
-          <button class="animated-button gpt-search-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" class="arr-2" viewBox="0 0 24 24">
-              <path
-                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-              </path>
-            </svg>
-            <span class="text"><a href="./gpt.html">GPTSEARCH</a></span>
-            <span class="circle"></span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="arr-1" viewBox="0 0 24 24">
-              <path
-                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-              </path>
-            </svg>
-          </button>
-          <button class="animated-button">
-            <svg xmlns="http://www.w3.org/2000/svg" class="arr-2" viewBox="0 0 24 24">
-              <path
-                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-              </path>
-            </svg>
-            <span class="text"><a href="indexa.html">RECOMENDATION</a></span>
-            <span class="circle"></span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="arr-1" viewBox="0 0 24 24">
-              <path
-                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-              </path>
-            </svg>
-          </button>
+          <a href="./gpt.html" class="btn-23 gpt-search-btn">
+            <span class="text gpt-search-btn">GPT Search</span>
+            <span aria-hidden="" class="marquee">AI Search</span>
+          </a>
 
+          <a href="./indexa.html" class="btn-23">
+            <span class="text">AI Recomendation</span>
+            <span aria-hidden="" class="marquee">AI Recomd</span>
+          </a>
         </div>
       </div>
     </section>
+
     <section class="features__container">
-      <!-- Feature 1 -->
       <div class="feature">
         <div class="feature__details">
           <h3 class="feature__title">Enjoy on your TV.</h3>
@@ -234,6 +178,7 @@
         </div>
       </div>
     </section>
+
     <section class="FAQ__list__container">
       <h1 class="FAQ__heading">Frequently Asked Questions</h1>
       <div class="FAQ__list">
@@ -347,6 +292,7 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <footer>

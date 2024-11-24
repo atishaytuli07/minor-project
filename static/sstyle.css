@@ -15,7 +15,6 @@ img {
 }
 
 h1 {
-	padding-top: 150px;
 	color: red;
 	font-size: 50px;
 }
@@ -28,9 +27,10 @@ form p1 {
 
 input {
 	padding: 12px;
-	background-color: black;
-	color: white;
+	background-color: rgb(238, 233, 233);
+	color: rgb(2, 2, 2);
 	font-size: 17px;
+	border-radius: 5px;
 }
 
 @media (max-width: 450px) {}
