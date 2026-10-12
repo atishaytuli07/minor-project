@@ -38,4 +38,4 @@ AI-Powered Chatbot (NetflixConversaAI)
 ![Conversa Bot](./pictures/NC14.png)
 
 
-for more information read the file.
+For more information, see the documentation below.
